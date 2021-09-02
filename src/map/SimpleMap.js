@@ -5,14 +5,9 @@ import { useWindowResizeHooks } from "./WindowResizeHook";
 const SimpleMap = ({ mapGeoJsonData, placeholderRef }) => {
   const [dimension, setDimension] = useState({ height: 0, width: 0 });
   const { width, height } = useWindowResizeHooks(placeholderRef);
+
   useEffect(() => {
-    console.info("height: " + height + " width: " + width);
     setDimension({ height: height, width: width });
-    // const clientWidth = placeholderRef.current.clientWidth;
-    // const innerHeight = window.innerHeight;
-    // if (clientWidth !== 0 && innerHeight !== 0) {
-    //   setDimension({ height: innerHeight, width: clientWidth });
-    // }
   }, [width, height]);
 
   useEffect(() => {
